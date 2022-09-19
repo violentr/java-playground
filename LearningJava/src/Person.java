@@ -13,9 +13,9 @@
 
      public String hello(){
          if (this.age > 0) {
-             return System.out.printf("Hello %s, you are %d years old", this.name, this.age).toString();
+             return System.out.printf("Hello %s, you are %d years old \n", this.name, this.age).toString();
          }
-         return System.out.printf("Hello %s", this.name).toString();
+         return System.out.printf("Hello %s \n", this.name).toString();
 
      }
  }

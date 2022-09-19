@@ -20,6 +20,8 @@ public class Main {
 
         Person p = new Person("Vasya", 21);
         p.hello();
+        Musician m = new Musician("James");
+        m.play();
 
 
     }
