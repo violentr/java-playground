@@ -15,8 +15,11 @@ public class Main {
         binOperations();
         treeMapOperations();
         arrayOperations();
-        int [] a = new int[50000];
-        bubbleSort(a);
+//        int [] a = new int[50000];
+//        bubbleSort(a);
+
+        Person p = new Person("Vasya", 21);
+        p.hello();
 
 
     }
