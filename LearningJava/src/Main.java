@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -6,7 +7,10 @@ import java.util.TreeMap;
 
 
 public class Main {
-    public static void main(String arg[]){
+    public Main() throws FileNotFoundException {
+    }
+
+    public static void main(String arg[]) throws IOException {
         String str = "Hello world!";
         strOperations(str);
 //        int number = printUserNumber();
@@ -18,13 +22,43 @@ public class Main {
 //        int [] a = new int[50000];
 //        bubbleSort(a);
 
-        Person p = new Person("Vasya", 21);
-        p.hello();
-        Musician m = new Musician("James");
-        m.play();
+//        Person p = new Person("Vasya", 21);
+//        p.hello();
+//        Musician m = new Musician("James");
+//        m.play();
+        String path = String.format("%s/%s", System.getenv("JAVA_PROJECTs"), "file.txt");
+        try{
+            String contents = readFile(path);
+            System.out.println(contents);
+        }catch (FileNotFoundException e){
+            System.out.printf("[!]Error: File not found! path: %s", path);
+        }
+
 
 
     }
+    public static String readFile(String path) throws IOException {
+        BufferedReader buffer = new BufferedReader(new FileReader(path));
+        String contents;
+
+        try{
+            StringBuilder sb = new StringBuilder();
+            String line = buffer.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = buffer.readLine();
+            }
+            contents = sb.toString();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally{
+            buffer.close();
+        }
+        return contents;
+    }
+
     public static  void arrayOperations(){
         ArrayList<Integer> arr = new ArrayList<Integer>();
         arr.add(10);
@@ -59,7 +93,7 @@ public class Main {
       System.out.println("Bubble Sort Algo: It took " + (end_time - start_time)/1000 + "s to sort array with " + array.length + " elements");
     }
     public static void treeMapOperations(){
-        TreeMap<Integer, String> t = new TreeMap();
+        TreeMap<Integer,String> t = new TreeMap();
         t.put(121212, "Taxi");
         System.out.println(t.containsValue("Taxi") ? "Taxi" : "N/A");
 //        System.out.println(t.get(121212));
