@@ -26,16 +26,19 @@ public class Main {
 //        p.hello();
 //        Musician m = new Musician("James");
 //        m.play();
-        String path = String.format("%s/%s", System.getenv("JAVA_PROJECTs"), "file.txt");
-        try{
-            String contents = readFile(path);
-            System.out.println(contents);
-        }catch (FileNotFoundException e){
-            System.out.printf("[!]Error: File not found! path: %s", path);
-        }
 
+//        String path = String.format("%s/%s", System.getenv("JAVA_PROJECT"), "file.txt");
+//        try{
+//            String contents = readFile(path);
+//            System.out.println(contents);
+//        }catch (FileNotFoundException e){
+//            System.out.printf("[!]Error: File not found! path: %s\n", path);
+//        }
 
-
+        binaryRepresentation(9);
+    }
+    public static void binaryRepresentation(int number){
+        System.out.printf("Binary representation of number=%d is %s", number, Integer.toBinaryString(number));
     }
     public static String readFile(String path) throws IOException {
         BufferedReader buffer = new BufferedReader(new FileReader(path));
