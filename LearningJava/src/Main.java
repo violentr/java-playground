@@ -37,11 +37,10 @@ public class Main {
 //        t.binaryRepresentation(9);
         // Copy array
         int [] numbers = {1,2,2,4,5,6};
-//        int[] moreNumbers = numbers;
-        int[] moreNumbers = Arrays.copyOfRange(numbers, 0, numbers.length);
 
-        for(int number: numbers){
-            System.out.printf("%d ", number);
-        }
+//        int[] moreNumbers = numbers;
+        int[] copiedArray = t.copyArrays(numbers);
+        boolean compared = t.compareArrays(numbers, copiedArray);
+        System.out.printf("Two arrays are equal ? %s", compared);
     }
 }

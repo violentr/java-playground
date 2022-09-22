@@ -15,6 +15,22 @@ public class Utility {
     public void binaryRepresentation(int number){
         System.out.printf("Binary representation of number=%d is %s", number, Integer.toBinaryString(number));
     }
+    public boolean compareArrays(int[] array, int[] array2){
+        Boolean value = true;
+
+        for(int i=0;i<array.length;i++){
+            if (array[i] != array2[i]) {
+                value = false;
+            }else {
+                value = true;
+            }
+        }
+        return value;
+    }
+
+    public int[] copyArrays(int[] array){
+        return Arrays.copyOfRange(array, 0, array.length);
+    }
     public static String readFile(String path) throws IOException {
         BufferedReader buffer = new BufferedReader(new FileReader(path));
         String contents;
