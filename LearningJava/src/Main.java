@@ -7,18 +7,17 @@ import java.util.TreeMap;
 
 
 public class Main {
-    public Main() throws FileNotFoundException {
-    }
 
     public static void main(String arg[]) throws IOException {
         String str = "Hello world!";
-        strOperations(str);
+        Utility t = new Utility("type");
+        t.strOperations(str);
 //        int number = printUserNumber();
 //        int x[] =new int[number];
 //        loop(x);
-        binOperations();
-        treeMapOperations();
-        arrayOperations();
+        t.binOperations();
+        t.treeMapOperations();
+        t.arrayOperations();
 //        int [] a = new int[50000];
 //        bubbleSort(a);
 
@@ -35,98 +34,14 @@ public class Main {
 //            System.out.printf("[!]Error: File not found! path: %s\n", path);
 //        }
 
-        binaryRepresentation(9);
-    }
-    public static void binaryRepresentation(int number){
-        System.out.printf("Binary representation of number=%d is %s", number, Integer.toBinaryString(number));
-    }
-    public static String readFile(String path) throws IOException {
-        BufferedReader buffer = new BufferedReader(new FileReader(path));
-        String contents;
+//        t.binaryRepresentation(9);
+        // Copy array
+        int [] numbers = {1,2,2,4,5,6};
+//        int[] moreNumbers = numbers;
+        int[] moreNumbers = Arrays.copyOfRange(numbers, 0, numbers.length);
 
-        try{
-            StringBuilder sb = new StringBuilder();
-            String line = buffer.readLine();
-
-            while (line != null) {
-                sb.append(line);
-                sb.append(System.lineSeparator());
-                line = buffer.readLine();
-            }
-            contents = sb.toString();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } finally{
-            buffer.close();
+        for(int number: numbers){
+            System.out.printf("%d ", number);
         }
-        return contents;
-    }
-
-    public static  void arrayOperations(){
-        ArrayList<Integer> arr = new ArrayList<Integer>();
-        arr.add(10);
-        arr.add(20);
-        arr.add(30);
-       // while(true) arr.add(1); Check to allocate 100 MB for VM
-//        System.out.print("Array contains: " + arr.toString());
-    }
-
-    public static void bubbleSort(int[] array){
-      /* Bubble sort algorithm */
-        for (int i=array.length -1; i>=0 ;i--){
-          array[i] = array.length - i;
-      }
-
-      long start_time = System.currentTimeMillis();
-      long end_time;
-      while(true){
-          boolean hadPermutations = false;
-          for(int i=0;i < array.length -1; i++){
-              if(array[i] > array[i+1]) {
-                  int q = array[i + 1];
-                  array[i + 1] = array[i];
-                  array[i] = q;
-                  hadPermutations = true;
-              }
-          }
-          if (!hadPermutations) break;
-
-      }
-      end_time = System.currentTimeMillis();
-      System.out.println("Bubble Sort Algo: It took " + (end_time - start_time)/1000 + "s to sort array with " + array.length + " elements");
-    }
-    public static void treeMapOperations(){
-        TreeMap<Integer,String> t = new TreeMap();
-        t.put(121212, "Taxi");
-        System.out.println(t.containsValue("Taxi") ? "Taxi" : "N/A");
-//        System.out.println(t.get(121212));
-    }
-    public static void binOperations(){
-        int x = 9;
-        int range = 1024 * 1024;
-        for(int i=0;i<20;i++){
-            range = range >>1;
-            System.out.print((( x & range ) != 0) ? "1" : "0");
-        }
-        System.out.println();
-    }
-    public static void strOperations(String str){
-        System.out.printf(str + " !");
-        System.out.println(str.substring(6));
-        System.out.println(str.length());
-    }
-
-    public static void loop(int array[]){
-        System.out.println("Array with " + array.length + " elements, array[i] * 10");
-        for(int i=0; i< array.length; i++){
-            array[i] = i * 10;
-        }
-        System.out.println(Arrays.toString(array));
-    }
-
-    public static int printUserNumber(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your number:");
-        return sc.nextInt();
     }
 }
