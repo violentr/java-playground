@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "9fc4f983-05ec-4cbe-bf7c-1770737eff7d",
+		"name": "Java Spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/v1/person",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Daniel B\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/person/:id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Daniel B\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/person",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Daniel B\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/person/:id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Daniel B\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/person/:id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"0c20eb2e-5897-483e-90e9-d37a6b943999\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/person/0c20eb2e-5897-483e-90e9-d37a6b943612",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"person",
+						"0c20eb2e-5897-483e-90e9-d37a6b943612"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/person/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"0c20eb2e-5897-483e-90e9-d37a6b943999\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/person/0c20eb2e-5897-483e-90e9-d37a6b943612",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"person",
+						"0c20eb2e-5897-483e-90e9-d37a6b943612"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
