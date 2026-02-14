@@ -1,0 +1,6 @@
+.env
+.DS_STORE
+.idea
+./idea/**
+*/out/**
+
