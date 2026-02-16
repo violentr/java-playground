@@ -1,3 +1,6 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Basics{
  // public: Anyone can access this
  // static: This belongs to the class, not an instance (important for memory
@@ -8,14 +11,21 @@ public class Basics{
 // don't validate args, you open the door to injection
 
   public static void main (String[] args){
-    int age = 25;
     String goal = "Find vulnerabilities";
-    boolean isLearning = true;
+    try{
+      boolean isLearning = true;
+      Scanner scan = new Scanner(System.in);
+      System.out.println("Please enter your age: ");
+      int age = scan.nextInt();
+      System.out.println("Goal: " + goal);
 
-    System.out.println("Goal: " + goal);
-
-    if (isLearning){
-      System.out.println("User is " + age + " yeaars old and active.");
+      if (isLearning){
+        System.out.println("User is " + age + " yeaars old and active.");
+      }
+    }catch(InputMismatchException e){
+      System.out.println(e.getMessage());
+      System.out.println("Please enter your age !");
     }
+
   }
 }
