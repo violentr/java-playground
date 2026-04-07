@@ -22,7 +22,8 @@ public class Main {
         serializeObject(user, filename);
         deserializeObject(filename);
         */
-        Network.makeHTTPRequest("https://www.google.com");
+        Network nwt = new Network("http://www.google.com");
+        nwt.makeHTTPRequest();
     }
 
     public static boolean isPalindrome(String str) {
