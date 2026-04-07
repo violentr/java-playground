@@ -1,23 +1,28 @@
 package object.oriented.programming;
 
+import simple.code.practice.Network;
 import simple.code.practice.User;
 
 import java.io.*;
+import java.net.Socket;
 import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 //      /* descending order */
-        boolean result = isPalindrome("racccar");
-        System.out.printf("isPalindrome: %s%n", result ? "True" : "False");
-        int[] numbers = new int[]{1, 2, 3, 3, 4, 5};
-        System.out.printf("Duplicate found: %d%n", findDuplicate(numbers));
-        String text = "hello world";
+//        boolean result = isPalindrome("racccar");
+//        System.out.printf("isPalindrome: %s%n", result ? "True" : "False");
+//        int[] numbers = new int[]{1, 2, 3, 3, 4, 5};
+//        System.out.printf("Duplicate found: %d%n", findDuplicate(numbers));
+//        String text = "hello world";
 //        System.out.printf("text: %c%n", text.equalsIgnoreCase("hello wOrlD") ? 'T' : 'F');
+       /*
         User user = new User("James", 25);
         String filename = "user.ser";
         serializeObject(user, filename);
         deserializeObject(filename);
+        */
+        Network.makeHTTPRequest("https://www.google.com");
     }
 
     public static boolean isPalindrome(String str) {
@@ -81,4 +86,6 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
+
+
 }
