@@ -1,5 +1,6 @@
 package simple.code.practice;
 
+import javax.net.ssl.SSLSocketFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,35 +12,40 @@ import java.net.URL;
 public class Network {
     private String url;
     private int port = 80;
-    private String hostname;
-    private String request;
+    private String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0";
 
     public Network(String url) {
         this.url = url;
     }
-
-    public String buildRequest() {
-        return "GET / HTTP/1.1\r\n" +
-                "Host: " + hostname + "\r\n" +
-                "Connection: close\r\n" +
-                "\r\n";
+    public void setUserAgent(String userAgent) {
+        this.userAgent = userAgent;
+    }
+    private String buildRequest(String hostname) {
+        return new StringBuilder()
+                .append("GET / HTTP/1.1\r\n")
+                .append("Host: ")
+                .append(hostname)
+                .append("\r\n")
+                .append("User-Agent:").append(userAgent)
+                .append("\r\n")
+                .append("Connection: close\r\n")
+                .append("\r\n").toString();
     }
 
-    public void parseURL() {
+    private String parseURL() {
         try {
             URL destinationUrl = new URL(this.url);
-            hostname = destinationUrl.getHost();
+            String hostname = destinationUrl.getHost();
             if (destinationUrl.getProtocol().equals("https")) {
                 port = 443;
             }
-
-
+            return hostname;
         } catch (MalformedURLException e) {
             throw new IllegalArgumentException("Invalid URL format", e);
         }
     }
 
-    public void processResponse(BufferedReader buffer) {
+    private void processResponse(BufferedReader buffer) {
         try {
             StringBuilder headers = new StringBuilder();
             StringBuilder body = new StringBuilder();
@@ -63,9 +69,14 @@ public class Network {
             System.err.println("Error reading response: " + e.getMessage());
         }
     }
-
-    public void sendRequest() {
-        try (Socket socket = new Socket(hostname, port);
+    /* pure function does not depend on hidden state */
+    private Socket createSocket(String hostname, int port) throws IOException {
+        return (port == 443)
+                ? SSLSocketFactory.getDefault().createSocket(hostname, port)
+                : new Socket(hostname, port);
+    }
+    private void sendRequest(String hostname, String request) {
+        try (Socket socket = createSocket(hostname, port);
              OutputStream outputStream = socket.getOutputStream();
              BufferedReader bufferedReader = new BufferedReader(
                      new InputStreamReader(socket.getInputStream()))) {
@@ -79,10 +90,10 @@ public class Network {
     }
 
     public void makeHTTPRequest() {
-        parseURL();
-        request = buildRequest();
+        String hostname = parseURL();
+        String request = buildRequest(hostname);
         /* Create a socket and send the request */
-        sendRequest();
+        sendRequest(hostname, request);
     }
 
 }
