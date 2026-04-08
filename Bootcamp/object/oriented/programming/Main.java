@@ -1,10 +1,10 @@
 package object.oriented.programming;
 
+import simple.code.patterns.HTTPNetwork;
 import simple.code.practice.Network;
 import simple.code.practice.User;
 
 import java.io.*;
-import java.net.Socket;
 import java.util.HashSet;
 
 public class Main {
@@ -25,6 +25,12 @@ public class Main {
        Network nwt = new Network("https://www.google.com");
        nwt.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0");
        nwt.makeHTTPRequest();
+
+       HTTPNetwork buildPattern = new HTTPNetwork.Builder("http://www.google.com")
+               .userAgent("User Agent")
+               .port(443)
+               .build();
+        System.out.printf("buildPattern: %s%n", buildPattern.toString());
 
     }
 
