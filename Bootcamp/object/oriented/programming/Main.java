@@ -1,36 +1,20 @@
 package object.oriented.programming;
 
-import simple.code.patterns.HTTPNetwork;
-import simple.code.practice.Network;
+import simple.code.practice.FileOperation;
+import simple.code.practice.Output;
 import simple.code.practice.User;
 
 import java.io.*;
 import java.util.HashSet;
 
 public class Main {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-//      /* descending order */
-//        boolean result = isPalindrome("racccar");
-//        System.out.printf("isPalindrome: %s%n", result ? "True" : "False");
-//        int[] numbers = new int[]{1, 2, 3, 3, 4, 5};
-//        System.out.printf("Duplicate found: %d%n", findDuplicate(numbers));
-//        String text = "hello world";
-//        System.out.printf("text: %c%n", text.equalsIgnoreCase("hello wOrlD") ? 'T' : 'F');
-       /*
-        User user = new User("James", 25);
-        String filename = "user.ser";
-        serializeObject(user, filename);
-        deserializeObject(filename);
-        */
-       Network nwt = new Network("https://www.google.com");
-       nwt.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0");
-       nwt.makeHTTPRequest();
+    final static String fileName = "file.txt";
 
-       HTTPNetwork buildPattern = new HTTPNetwork.Builder("http://www.google.com")
-               .userAgent("User Agent")
-               .port(443)
-               .build();
-        System.out.printf("buildPattern: %s%n", buildPattern.toString());
+    public static void main(String[] args) {
+        System.out.printf("Writing to file: %s%n", fileName);
+        new FileOperation().writeToFile(fileName);
+        System.out.printf("Reading from file: %s%n", fileName);
+        new FileOperation().readFile(fileName);
 
     }
 
