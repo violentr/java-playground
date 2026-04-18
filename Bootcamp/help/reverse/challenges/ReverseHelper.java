@@ -1,5 +1,6 @@
 package help.reverse.challenges;
 import java.lang.StringBuilder;
+import java.nio.charset.StandardCharsets;
 
 public class ReverseHelper {
     static void main() {
@@ -55,5 +56,40 @@ public class ReverseHelper {
             result.append(character);
         }
         return result.toString();
+    }
+
+    public static byte[] hexToBytes(String hex) {
+        int len = hex.length();
+        byte[] data = new byte[len / 2];
+        for (int i = 0; i < len; i += 2) {
+            String part = hex.substring(i, i + 2);
+            data[i / 2] = (byte) Integer.parseInt(part, 16);
+        }
+        return data;
+    }
+
+    public static String xorDecode(String hex, int key){
+        hex = hex.replaceAll("\\s+", "");
+
+        byte[] bytes = new byte[hex.length() / 2];
+        //System.out.print("Decoded bytes: ");
+        for (int i = 0; i < hex.length(); i += 2) {
+            String part = hex.substring(i, i + 2);
+            int val = Integer.parseInt(part, 16);
+            byte decodedByte = (byte) (val ^ key);
+            bytes[i / 2] = decodedByte;
+            //System.out.print(decodedByte + " ");
+        }
+        System.out.println();
+
+        return new String(bytes, StandardCharsets.US_ASCII);
+    }
+
+    public static String xorEncode(String plain, int key) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : plain.toCharArray()) {
+            sb.append(String.format("%02x", ((int) c) ^ key));
+        }
+        return sb.toString();
     }
 }
