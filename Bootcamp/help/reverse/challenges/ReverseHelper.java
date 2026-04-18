@@ -1,4 +1,5 @@
 package help.reverse.challenges;
+import java.lang.StringBuilder;
 
 public class ReverseHelper {
     static void main() {
@@ -31,5 +32,14 @@ public class ReverseHelper {
             upper = !upper;
         }
         return r;
+    }
+
+    public static String toHexString(byte[] bytes) {
+        StringBuilder result = new StringBuilder();
+        for (byte b : bytes) {
+            String hex = String.format("%02x", b);
+            result.append(hex);
+        }
+        return result.toString();
     }
 }
