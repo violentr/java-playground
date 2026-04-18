@@ -42,4 +42,18 @@ public class ReverseHelper {
         }
         return result.toString();
     }
+
+    public static String hexToAscii(String hex) {
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < hex.length(); i += 2) {
+            /* 2 bytes = 1 hex character */
+            String hexPart = hex.substring(i, i + 2);
+            /* Convert hex to decimal */
+            int decimal = Integer.parseInt(hexPart, 16);
+            char character = (char) decimal;
+            result.append(character);
+        }
+        return result.toString();
+    }
 }

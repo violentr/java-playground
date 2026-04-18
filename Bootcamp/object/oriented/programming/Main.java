@@ -2,10 +2,6 @@ package object.oriented.programming;
 
 import help.reverse.challenges.ReverseHelper;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 public class Main {
     final static String fileName = "file.txt";
 
@@ -18,17 +14,15 @@ public class Main {
         /* Ascii table for characters */
       //  "abcdefghijklmnopqrstuvwxyz\r\n\t".chars().forEach(System.out::println);
 
-        try {
-            String str = "732901";
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] data = str.getBytes(StandardCharsets.UTF_8);
-            md.update(data);
-            byte[] digest = md.digest();
-            System.out.println("MD5 Hash: "+ ReverseHelper.toHexString(digest));
 
-        }catch (NoSuchAlgorithmException e){
-            System.out.println(e.getMessage());
-        }
+        String result = ReverseHelper.hexToAscii("536d6172744861636b546f6f6c73");
+        System.out.printf("Result: %s%n", result);
+
+        String original = "Mobisec";
+        String hex = ReverseHelper.toHexString(original.getBytes());
+        String decoded = ReverseHelper.hexToAscii(hex);
+        System.out.println(original.equals(decoded));
+
 
 
 
