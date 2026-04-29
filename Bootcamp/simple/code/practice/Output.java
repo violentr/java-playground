@@ -1,6 +1,7 @@
 package simple.code.practice;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -24,6 +25,14 @@ public class Output {
     public void loop(String str) {
         for (int i = 0; i < str.length(); i++) {
             System.out.printf("Char: %s ", str.charAt(i));
+        }
+    }
+
+    public  void printLoop(int n){
+        for (int i = 0; n > 0; i++) {
+            for (int j = i; j < i + i && n > 0; j++, n--) {
+                System.out.print(i + " ");
+            }
         }
     }
 
@@ -113,5 +122,16 @@ public class Output {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    private static void rotate(int[] arr, int steps) {
+        int length = arr.length;
+        int[] temp = new int[length];
+        for (int i = 0; i < length; i++) {
+            temp[(i + steps) % length] = arr[i];
+        }
+        for (int i = 0; i < length; i++) {
+            arr[i] = temp[i];
+        }
+        System.out.println(Arrays.toString(arr));
     }
 }
