@@ -8,9 +8,10 @@ Format: **When I need to ___, I use ___.**
 
 ## Week 01–02: Type System (Ch 4)
 
-| Date | When I need to... | I use... |
-|------|-------------------|----------|
-|      |                   |          |
+| Date       | When I need to...  | I use...                                                  |
+|------------|--------------------|-----------------------------------------------------------|
+| 09/06/2026 | Make HTTP request  | HttpRequest.newBuilder().build() & i send with HttpClient |
+
 
 ## Week 03–04: Collections (Ch 8)
 
