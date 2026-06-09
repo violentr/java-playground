@@ -1,0 +1,4 @@
+# Test request
+GET /get HTTP/1.1
+Host: httpbin.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0;)
