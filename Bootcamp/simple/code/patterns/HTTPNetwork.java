@@ -14,6 +14,14 @@ public class HTTPNetwork {
         this.userAgent = builder.userAgent;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
     //  The Builder lives INSIDE Network
     public static class Builder {
         private String url;
