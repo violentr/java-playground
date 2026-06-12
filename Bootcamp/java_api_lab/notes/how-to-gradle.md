@@ -50,6 +50,22 @@ On Windows: `gradlew.bat tasks`.
 ---
 
 ## Simple custom task
+KOTLIN
+Add a task to `build.gradle.kts`.
+
+
+```kotlin
+tasks.jar {
+    manifest {
+        attributes("Main-Class" to "org.example.App")
+    }
+}
+```
+Execute:
+This will add a `Main-Class` attribute to the JAR manifest, so it can be run with `java -jar`
+
+$ gradle jar
+$ java -jar build/libs/your_file.jar -> Hello World!
 
 Add a task to `build.gradle`. This matches [`gradle-demo/build.gradle`](../gradle-demo/build.gradle):
 
