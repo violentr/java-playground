@@ -19,6 +19,10 @@ Format: **When I need to ___, I use ___.**
 | 15/06/2026 | Shorthand for a simple lambda        | method reference: `User::getName`, `System.out::println`              |
 | 15/06/2026 | Store a reusable boolean check       | `Predicate<T> p = x -> ...; p.test(x)`                                |
 | 15/06/2026 | Run an action on each item           | `list.forEach(...)` or `stream().forEach(...)`                        |
+| 17/06/2026 | Hold simple immutable data           | `record Student(String name, int age) {}`                               |
+| 17/06/2026 | Validate record fields at creation   | compact constructor: `public Student { if (age < 0) throw ... }`      |
+| 17/06/2026 | Read a record field                  | field accessor: `student.name()` (not `getName()`)                    |
+| 17/06/2026 | Compare or print value objects       | record auto-generates `equals()`, `hashCode()`, `toString()`          |
 
 
 ## Week 03–04: Collections (Ch 8)
