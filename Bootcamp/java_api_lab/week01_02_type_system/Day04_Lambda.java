@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+import static java.lang.System.out;
 
 class User {
     private String name;
@@ -29,6 +32,15 @@ public class Day04_Lambda {
 
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(2, 3, 4, 6, 7, 9));
         isEven(list);
+
+        Predicate<Integer> isEven = n -> n % 2 == 0;
+
+        List<Integer> l1 = list.stream()
+                .distinct()
+                .filter(isEven)
+                .skip(1)
+                .collect(Collectors.toCollection(ArrayList::new));
+        out.println(l1);
 
     }
     public static void printAll(List<User> people){
