@@ -1,7 +1,9 @@
 package java_api_lab.week01_02_type_system;
 
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 public class Day05_Record {
     /* record is a new feature in Java 16
@@ -36,6 +38,8 @@ public class Day05_Record {
         Student student = new Student("John", 23);
         Student student2 = new Student("Carl", 22);
 
+        Student student3 = Optional.ofNullable(student).orElse(new Student("unknown", 0));
+        System.out.println("Who is it ? " + student3.name() );
         System.out.println(student.name());
         System.out.println(student.info());
 
@@ -46,5 +50,11 @@ public class Day05_Record {
         students.stream().map(Student::info).forEach(System.out::println);
 
 
+    }
+    public static Object print(Object object){
+        if (object instanceof Student(String name, int age)){
+            return object;
+        }
+        return "unknown";
     }
 }
