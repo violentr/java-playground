@@ -24,6 +24,9 @@ public class Main extends JFrame {
         add(button, BorderLayout.SOUTH);
 
         /* add an action listener */
-        button.addActionListener(e -> System.out.println("Hello, World!"));
+        addMessage("Hello, World!");
+    }
+    public void addMessage(String message) {
+        button.addActionListener(e -> textArea.append(message + "\n"));
     }
 }
