@@ -1,10 +1,11 @@
 package week03_04_collections.learninglist;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 public class StudentGradeManager {
-    private final ArrayList<Student> students;
+    private final List<Student> students;
     public StudentGradeManager() {
         this.students = new ArrayList<>();
     }
