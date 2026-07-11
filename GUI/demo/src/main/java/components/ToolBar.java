@@ -18,10 +18,13 @@ public class ToolBar extends JPanel implements ActionListener {
 
         add(helloButton);
         add(goodbyeButton);
-        helloButton.addActionListener(this);
-        goodbyeButton.addActionListener(this);
+         helloButton.addActionListener(this);
+         goodbyeButton.addActionListener(this);
     }
-
+//    public void addText(JTextArea textArea) {
+//        helloButton.addActionListener(e -> textArea.append("Hello\n"));
+//        goodbyeButton.addActionListener(e -> textArea.append("Goodbye\n"));
+//    }
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("Button clicked: " + e.getActionCommand());
