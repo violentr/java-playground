@@ -29,7 +29,14 @@ Format: **When I need to ___, I use ___.**
 
 | Date | When I need to... | I use... |
 |------|-------------------|----------|
-|      |                   |          |
+| 11/07/2026 | Store students behind an interface type | `private final List<Student> students = new ArrayList<>();` |
+| 11/07/2026 | Build a fixed mini input list for looping | `for (Student s : List.of(john, jane, bob)) { ... }` |
+| 11/07/2026 | Protect internal grades from external mutation | `Collections.unmodifiableList(grades)` in getter |
+| 11/07/2026 | Remove by value (not by index) from `ArrayList<Integer>` | `grades.remove(Integer.valueOf(grade))` |
+| 11/07/2026 | Compute average safely from a list of integers | `stream().mapToInt(Integer::intValue).average().orElse(0.0)` |
+| 11/07/2026 | Get and remove the minimum grade | `stream().min(Integer::compare).orElseThrow()` then `removeGrade(...)` |
+| 11/07/2026 | Fail fast on invalid method input | `Objects.requireNonNull(student, "...")` |
+| 11/07/2026 | Use Optional for side effect vs returned value | `ifPresent(...)` for action, `map(...).orElse(...)` for value |
 
 ## Week 05–06: Data Formats (Ch 9)
 
