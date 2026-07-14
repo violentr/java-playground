@@ -17,6 +17,6 @@ public class MainFrame extends JFrame {
         add(textPanel, BorderLayout.CENTER);
         add(textArea, BorderLayout.CENTER);
         setVisible(true);
-       // toolbar.addText(textArea);
+        toolbar.addText(textArea);
     }
 }
