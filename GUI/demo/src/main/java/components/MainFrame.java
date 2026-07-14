@@ -4,19 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
-    private ToolBar toolbar;
-    private TextPanel textPanel;
-    private JTextArea textArea;
+
     public MainFrame() {
-        toolbar = new ToolBar();
-        textPanel = new TextPanel();
-        textArea = new JTextArea();
-        setSize(400, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        TextPanel textPanel = new TextPanel();
+        ToolBar toolbar = new ToolBar(textPanel);
+
         add(toolbar, BorderLayout.NORTH);
         add(textPanel, BorderLayout.CENTER);
-        add(textArea, BorderLayout.CENTER);
+
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        toolbar.addText(textArea);
     }
 }
