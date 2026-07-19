@@ -7,18 +7,23 @@ import java.awt.event.ActionListener;
 public class ToolBar extends JPanel {
     private final JButton helloButton;
     private final JButton goodbyeButton;
+    private StringListener textListener;
 
-    public ToolBar(TextPanel textPanel) {
+    public ToolBar() {
         helloButton = new JButton("Hello");
         goodbyeButton = new JButton("Goodbye");
         setLayout(new FlowLayout(FlowLayout.LEFT));
 
         ActionListener listener = e -> {
             if (e.getSource() == helloButton) {
-                textPanel.appendText("Hello button clicked");
+                if (textListener != null) {
+                    textListener.textEmitted("Hello button clicked");
+                }
                 System.out.println("Hello button clicked");
             } else if (e.getSource() == goodbyeButton) {
-                textPanel.appendText("Goodbye button clicked");
+                if (textListener != null) {
+                    textListener.textEmitted("Goodbye button clicked");
+                }
                 System.out.println("Goodbye button clicked");
             }
         };
@@ -27,5 +32,8 @@ public class ToolBar extends JPanel {
 
         add(helloButton);
         add(goodbyeButton);
+    }
+    public void setTextListener(StringListener listener) {
+        textListener = listener;
     }
 }
