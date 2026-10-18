@@ -1,0 +1,3 @@
+GET /users/1
+Host: jsonplaceholder.typicode.com
+Content-type: application/json
