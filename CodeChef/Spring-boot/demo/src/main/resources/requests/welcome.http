@@ -1,0 +1,3 @@
+GET /api/welcome/user?name=Alice
+Host: localhost:3000
+
